@@ -1,9 +1,14 @@
-name: Daily Automated Commit - 23f2003092@ds.study.iitm.ac.in
+name: Daily Automated Commit
+
 run-name: Daily Commit Run - 23f2003092@ds.study.iitm.ac.in
+
 on:
   schedule:
-    - cron: '17 2 * * *'   # Runs daily at 02:17 UTC (specific time, no wildcards)
-  workflow_dispatch:       # Allows manual trigger for testing
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   daily-commit:
@@ -15,14 +20,12 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config user.name "DevSync Automation Bot"
+          git config user.name "github-actions[bot]"
           git config user.email "23f2003092@ds.study.iitm.ac.in"
 
       - name: Daily update commit - 23f2003092@ds.study.iitm.ac.in
         run: |
           echo "Last updated on $(date -u)" >> daily-update.log
           git add daily-update.log
-          git commit -m "Automated daily commit on $(date -u)" || echo "No changes to commit"
+          git commit -m "Automated daily commit on $(date -u)"
           git push
-
-          
