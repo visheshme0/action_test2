@@ -1,5 +1,5 @@
 name: Daily Automated Commit - 23f2003092@ds.study.iitm.ac.in
-
+run-name: Daily Commit Run - 23f2003092@ds.study.iitm.ac.in
 on:
   schedule:
     - cron: '17 2 * * *'   # Runs daily at 02:17 UTC (specific time, no wildcards)
